@@ -6,6 +6,5 @@ part 'chip_state.dart';
 class ChipCubit extends Cubit<ChipState> {
   ChipCubit() : super(ChipInitial());
 
-  
 
 }

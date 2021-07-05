@@ -4,3 +4,4 @@ part of 'character_bloc.dart';
 abstract class CharacterState {}
 
 class CharacterInitial extends CharacterState {}
+

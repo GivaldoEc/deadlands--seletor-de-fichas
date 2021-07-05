@@ -1,0 +1,1 @@
+const String PRESENTATION_TEXT = "    Seja bem vindo, Xerife!\n \n\n   Informe, conforme, os passos apresentados, suas fichas do destino e personagens. Depois, atualize à vontade a situação do seu jogo. Quando estiver pronto, aperte no botão 'Tentar o destino'.\n\n   Divirta-se!!!";
