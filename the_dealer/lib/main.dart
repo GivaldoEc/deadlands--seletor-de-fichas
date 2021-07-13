@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
+import 'package:the_dealer/bloc/character_bloc/character_bloc.dart';
 import 'package:the_dealer/bloc/chip_cubit/chip_cubit.dart';
-import 'package:the_dealer/presentation/tools/const/colors.dart';
+import 'package:the_dealer/presentation/tools/main_theme_data.dart';
 import 'package:the_dealer/presentation/tools/router/router.dart';
 import 'package:the_dealer/presentation/tools/router/routes.dart';
 
@@ -19,10 +20,12 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return MultiBlocProvider(
           providers: [
-            BlocProvider(create: (_)=> ChipCubit()),
+            BlocProvider(create: (_) => ChipCubit()),
+                        BlocProvider(create: (_) => CharacterBloc()),
+
           ],
           child: MaterialApp(
-            theme: ThemeData(scaffoldBackgroundColor: Color(B_BROWN)),
+            theme: mainThemeData,
             debugShowCheckedModeBanner: false,
             onGenerateRoute: routeGenerator.generateRoute,
             initialRoute: SPLASHSCREEN,

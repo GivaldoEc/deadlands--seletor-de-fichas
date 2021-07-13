@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:the_dealer/bloc/chip_cubit/chip_cubit.dart';
 import 'package:the_dealer/presentation/pages/chip_sequence/widgets/box_standard_decoration.dart';
 import 'package:the_dealer/presentation/pages/chip_sequence/widgets/buttom_container.dart';
 import 'package:the_dealer/presentation/pages/chip_sequence/widgets/standard_text_form.dart';
+import 'package:the_dealer/presentation/tools/router/routes.dart';
 
 List<Widget> chipSetPot(context, cubit) {
   final TextEditingController white = TextEditingController(),
@@ -29,7 +29,7 @@ List<Widget> chipSetPot(context, cubit) {
         child: TextFormField(
           keyboardType: TextInputType.number,
           controller: red,
-          decoration: standardFormDecoration("Fichas Brancas"),
+          decoration: standardFormDecoration("Fichas Vermelhas"),
         ),
       ),
     ),
@@ -40,7 +40,7 @@ List<Widget> chipSetPot(context, cubit) {
         child: TextFormField(
           keyboardType: TextInputType.number,
           controller: blue,
-          decoration: standardFormDecoration("Fichas Brancas"),
+          decoration: standardFormDecoration("Fichas Azuis"),
         ),
       ),
     ),
@@ -51,7 +51,7 @@ List<Widget> chipSetPot(context, cubit) {
         child: TextFormField(
           keyboardType: TextInputType.number,
           controller: yellow,
-          decoration: standardFormDecoration("Fichas Brancas"),
+          decoration: standardFormDecoration("Fichas Douradas"),
         ),
       ),
     ),
@@ -82,7 +82,12 @@ List<Widget> chipSetPot(context, cubit) {
           y = int.parse(yellow.text);
         }
 
-        cubit.emit(ChipNumberOfPlayers(w, r, b, y));
+        cubit.addWhite(w);
+        cubit.addRed(r);
+        cubit.addBlue(b);
+        cubit.addYellow(y);
+
+        Navigator.pushNamed(context, PLAYERS);
       },
       "Próximo",
     )
